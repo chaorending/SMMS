@@ -5,9 +5,9 @@ let resultInfo;
 class UserDal {
     login(req, res) {
         let userNo = req.body.userNo;
-        let passWord = req.body.passWord;
-        let rember = req.body.rember;
+        let passWord = req.body.userPassword;
         let sql = `select * from super_user where userNo='${userNo}' and userPassword='${passWord}'`
+        console.log(sql);
         db.execSql(sql, (err, data) => {
             if (err) {
                 res.send(new ResultInfo(false, data, "登录失败"))

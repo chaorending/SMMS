@@ -6,12 +6,9 @@ import EditBlog from '@/components/blog/EditBlog'
 import BlogList from '@/components/blog/BlogList'
 Vue.use(Router)
 
-
-
-let router =new Router({
-  routes: [
-    {
-      path:'/login',
+let router = new Router({
+  routes: [{
+      path: '/login',
       name: '登录',
       component: Login
 
@@ -20,7 +17,7 @@ let router =new Router({
       path: '/',
       name: '首页',
       component: Main
-    },{
+    }, {
       path: '/',
       component: Main,
       name: '博文管理',
@@ -47,5 +44,22 @@ let router =new Router({
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  // console.log('to:' + to.path)
+  if (to.path.startsWith('/login')) {
+    window.localStorage.removeItem('access-user')
+    next()
+  } else {
+    let user = JSON.parse(window.localStorage.getItem('access-user'))
+    if (!user) {
+      next({
+        path: '/login'
+      })
+    } else {
+      next()
+    }
+  }
 })
 export default router

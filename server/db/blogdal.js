@@ -58,18 +58,18 @@ class BlogDal {
         imageUrl = imageUrl.replace('\\', '/');
         let sql = `INSERT into super_article(title,content,desc1,imageUrl,imageWidth,imageHeight,userName,updateTime,createTime)
         VALUES('${title}','${content}','${desc}','${imageUrl}',${imageWidth},${imageHeight},'小超人',current_timestamp(),current_timestamp())`
-        db.execSql(sql, (err, data) => {
+        db.execSql(sql, (err, data) =>{
             if (err) {
-                res.send(new ResultInfo(false, data, "操作失败"))
+                resultInfo=new ResultInfo(false, data, "操作失败")
             } else {
                 if (data.length) {
                     resultInfo = new ResultInfo(true, data, "插入成功")
-                    res.json(resultInfo);
+                  
                 } else {
                     resultInfo = new ResultInfo(false, data, "插入失败");
-                    res.json(resultInfo)
                 }
             }
+            res.json(resultInfo);
         })
     }
 
@@ -105,3 +105,4 @@ WHERE id=${id}`
 }
 
 module.exports = BlogDal
+

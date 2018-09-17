@@ -6,7 +6,6 @@ class BaseDal {
     constructor() {}
     execSql(sql, callback)
     {
-        console.log(sql)
         pool.getConnection((err, connection)=>{
             if (err) {
                 callback(err)
