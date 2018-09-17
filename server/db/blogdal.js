@@ -10,7 +10,9 @@ class BlogDal {
         let pageIndex = req.query.pageIndex;
         let pageSize = req.query.pageSize;
         let v1 = (pageIndex - 1) * pageSize;
-        let sql = `SELECT COUNT(1) as Total FROM super_article; SELECT * FROM super_article limit ${v1},${pageSize}`;
+        let title=req.query.title;
+        let sql = `SELECT COUNT(1) as Total FROM super_article WHERE ('${title}'='' OR title like '%${title}%'); 
+                   SELECT * FROM super_article WHERE ('${title}'='' OR title like'%${title}%') limit ${v1},${pageSize}`;
         db.execSql(sql, (err, data) => {
             if (err) {
                 res.send(new ResultInfo(false, data, "查询失败"))

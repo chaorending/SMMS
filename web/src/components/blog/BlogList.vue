@@ -5,7 +5,7 @@
       <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
         <el-form :inline="true" :model="filters">
           <el-form-item>
-            <el-input v-model="filters.name" placeholder="标题" @keyup.enter.native="handleSearch"></el-input>
+            <el-input v-model="filters.title" placeholder="标题" @keyup.enter.native="handleSearch"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" v-on:click="handleSearch">查询</el-button>
@@ -51,7 +51,7 @@ export default {
       pageCount: 0,
       page: 1,
       filters: {
-        name: ""
+        title: ""
       }
     };
   },
@@ -63,7 +63,8 @@ export default {
       let that = this;
       let params = {
         pageIndex: that.page,
-        pageSize: 5
+        pageSize: 5,
+        title:that.filters.title
       };
       that.loading = true;
       API.findList(params)
