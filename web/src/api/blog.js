@@ -22,6 +22,6 @@ export default {
 
 //单个删除blog
   remove: (params) => {
-    return API.POST(`/api/article/delete/`,params)
+    return API.POST(`/api/blog/delete/`,params)
   },
 }

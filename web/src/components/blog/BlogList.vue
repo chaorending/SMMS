@@ -123,7 +123,7 @@ export default {
       })
         .then(() => {
           let id = row.id;
-          let params = { ArticleId: id };
+          let params = { id: id };
           let that = this;
           API.remove(params).then(
             function(result) {

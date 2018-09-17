@@ -35,8 +35,11 @@ router.post('/update', function (req, res, next) {
     blogdal.updateBlog(req, res);
 })
 
+router.post('/delete',function(req,res,nex){
+    blogdal.deleteBlog(req,res)
+})
+
 router.post('/upload', upload.single('file'), function (req, res, next) {
-    console.log("123");
     res.send({
         path: req.file.path
     });
