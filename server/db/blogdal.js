@@ -50,16 +50,18 @@ class BlogDal {
     //插入
     insertBlog(req, res) {
         //可以直接取
-        let title = req.body.title;
-        let content = req.body.detailContent;
-        let imageUrl = req.body.path;
-        let desc = req.body.desc;
-        let imageWidth = req.body.imageWidth;
-        let imageHeight = req.body.imageHeight;
+        let title = req.body.title
+        let content = req.body.detailContent
+        let imageUrl = req.body.path
+        let desc = req.body.desc
+        let imageWidth = req.body.imageWidth
+        let imageHeight = req.body.imageHeight
+        let typeId=req.body.typeValue
         let userNname = '小超人';
         imageUrl = imageUrl.replace('\\', '/');
-        let sql = `INSERT into super_article(title,content,desc1,imageUrl,imageWidth,imageHeight,userName,updateTime,createTime)
-        VALUES('${title}','${content}','${desc}','${imageUrl}',${imageWidth},${imageHeight},'小超人',current_timestamp(),current_timestamp())`
+        let sql = `INSERT into super_article(title,content,desc1,imageUrl,imageWidth,imageHeight,userName,updateTime,createTime,typeid)
+        VALUES('${title}','${content}','${desc}','${imageUrl}',${imageWidth},${imageHeight},'小超人',current_timestamp(),current_timestamp(),${typeId})`
+        console.log(sql);
         db.execSql(sql, (err, data) => {
             if (err) {
                 resultInfo = new ResultInfo(false, data, "操作失败")

@@ -48,13 +48,12 @@ export default {
         title: "",
         desc: "",
         path: "",
-        typeValue:"",
+        typeValue: "",
         detailContent: "",
         imageWidth: "",
         imageHeight: ""
-        
       },
-      typelist:[],
+      typelist: [],
       serverUrl: "/api/blog/upload", // 这里写你要上传的图片服务器地址
       editorOption: {
         placeholder: "",
@@ -92,7 +91,7 @@ export default {
       if (!isJPG) {
         this.$message.error("只能上传图片");
       }
-      return isJPG
+      return isJPG;
     },
     // 上传图片前
     beforeUpload(res, file) {
@@ -158,18 +157,19 @@ export default {
     },
     update() {
       this.form.id = this.$route.query.id;
+      console.log(this.form.id);
       let that = this;
       if (this.form.id) {
         API.findById(that.form.id).then(
           function(result) {
             console.log(result);
             that.form.title = result.data[1][0].title;
-            that.form.path =  result.data[1][0].imageUrl;
-            that.form.detailContent =  result.data[1][0].content;
-            that.form.desc =  result.data[1][0].desc1;
-            that.form.imageWidth =  result.data[1][0].imageWidth;
-            that.form.imageHeight =  result.data[1][0].imageHeight;
-            that.typelist=result.data[0];
+            that.form.path = result.data[1][0].imageUrl;
+            that.form.detailContent = result.data[1][0].content;
+            that.form.desc = result.data[1][0].desc1;
+            that.form.imageWidth = result.data[1][0].imageWidth;
+            that.form.imageHeight = result.data[1][0].imageHeight;
+            that.typelist = result.data[0];
           },
           function(err) {
             that.loading = false;
@@ -180,6 +180,14 @@ export default {
             });
           }
         );
+      } else if (this.form.id == 0) {
+        that.clearForm();
+      }
+    },
+    clearForm() {
+      let that = this;
+      for (let pro in that.form) {
+        that.form[pro] = "";
       }
     }
   },

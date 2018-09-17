@@ -17,7 +17,7 @@
       </el-col>
       <!--列表-->
       <el-table :data="articelList" style="width: 100%;">
-        <el-table-column prop="id" width="60"></el-table-column>
+        <el-table-column v-if="false" prop="id" width="60"></el-table-column>
         <el-table-column prop="title" label="文章标题" sortable></el-table-column>
         <el-table-column prop="desc1" label="简介" sortable>
         </el-table-column>
@@ -94,15 +94,6 @@ export default {
           });
         });
     },
-    showAddDialog: function() {
-      this.addFormVisible = true;
-      this.addForm = {
-        name: "",
-        author: "",
-        publishAt: "",
-        description: ""
-      };
-    },
     openEdit: function(row) {
       this.$router.push({
         path: "/blog/edit",
@@ -113,7 +104,10 @@ export default {
     },
     OpenAdd: function() {
       this.$router.push({
-        name: "/blog/edit"
+        path: "/blog/edit",
+        query: {
+          id:0
+        }
       });
     },
     deleteArticle: function(index, row) {
