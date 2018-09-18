@@ -3,6 +3,7 @@ var router = express.Router();
 let Blogdal = require('../db/blogdal')
 let blogdal = new Blogdal()
 var multer = require('multer');
+var LogUtil=require('../Utils/logUtil');
 var storage = multer.diskStorage({
     //设置上传后文件路径，uploads文件夹会自动创建。
     destination: function (req, file, cb) {
@@ -21,6 +22,7 @@ var upload = multer({
 });
 
 router.get('/blogList', function (req, res, next) {
+    LogUtil.error("这是测试");
     blogdal.queryBlogList(req, res);
 })
 
