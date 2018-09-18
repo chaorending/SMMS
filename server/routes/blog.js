@@ -8,6 +8,7 @@ var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'upload/')
     },
+    
     //给上传文件重命名，获取添加后缀名
     filename: function (req, file, cb) {
         var fileFormat = (file.originalname).split(".");
@@ -45,5 +46,7 @@ router.post('/upload', upload.single('file'), function (req, res, next) {
     });
 });
 
+
+///类型增删改查
 
 module.exports = router;
