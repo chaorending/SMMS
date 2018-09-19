@@ -2,7 +2,6 @@
   <div id="typeList">
     <el-col :span="24" class="warp-main" v-loading="loading" element-loading-text="拼命加载中">
       <el-row>
-
         <el-col :span="6">
           <el-input v-model="queryparams.name" placeholder="请输入内容"></el-input>
         </el-col>
@@ -16,9 +15,9 @@
       <el-table :data="typeList" style="width: 100%" :default-sort="{prop: 'typeName', order: 'descending'}">
         <el-table-column prop="id" label="" v-if="false" sortable width="180">
         </el-table-column>
-        <el-table-column prop="typeName" label="类别" sortable width="180">
+        <el-table-column prop="type_name" label="类别" sortable width="180">
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" sortable width="150">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
             <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
@@ -102,7 +101,7 @@ export default {
       if (row.id) {
         this.editId = row.id;
         this.dialgTitel = "修改类型名称";
-        this.dialgTypeName = row.typeName;
+        this.dialgTypeName = row.type_name;
       }
       this.dialogFormVisible = true;
     },

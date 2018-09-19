@@ -47,7 +47,7 @@ class TypeDal {
     //新增
     insertType(req,res){
         let name=req.body.name;
-        let sql=`INSERT INTO super_type(typeName) values('${name}')`
+        let sql=`INSERT INTO super_type(type_name) values('${name}')`
         console.log(sql);
         db.execSql(sql, (err, data) => {
             if (err) {

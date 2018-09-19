@@ -19,10 +19,10 @@
       <el-table :data="articelList" style="width: 100%;">
         <el-table-column v-if="false" prop="id" width="60"></el-table-column>
         <el-table-column prop="title" label="文章标题" sortable></el-table-column>
-        <el-table-column prop="desc1" label="简介" sortable>
+        <el-table-column prop="depict" label="简介" sortable>
         </el-table-column>
-        <el-table-column prop="userName" label="作者" width="100" sortable></el-table-column>
-        <el-table-column prop="createTime" label="创建日期" width="150" sortable></el-table-column>
+        <el-table-column prop="user_name" label="作者" width="100" sortable></el-table-column>
+        <el-table-column prop="create_time" label="创建日期" width="150" sortable></el-table-column>
         <el-table-column label="操作" width="150">
           <template slot-scope="scope">
             <el-button size="small" @click="openEdit(scope.row)">编辑</el-button>

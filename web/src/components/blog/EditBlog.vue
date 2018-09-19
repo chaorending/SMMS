@@ -164,11 +164,11 @@ export default {
           function(result) {
             console.log(result);
             that.form.title = result.data[1][0].title;
-            that.form.path = result.data[1][0].imageUrl;
+            that.form.path = result.data[1][0].image_url;
             that.form.detailContent = result.data[1][0].content;
-            that.form.desc = result.data[1][0].desc1;
-            that.form.imageWidth = result.data[1][0].imageWidth;
-            that.form.imageHeight = result.data[1][0].imageHeight;
+            that.form.desc = result.data[1][0].depict;
+            that.form.imageWidth = result.data[1][0].image_width;
+            that.form.imageHeight = result.data[1][0].image_height;
             that.typelist = result.data[0];
           },
           function(err) {

@@ -59,7 +59,7 @@ class BlogDal {
         let typeId=req.body.typeValue
         let userNname = '小超人';
         imageUrl = imageUrl.replace('\\', '/');
-        let sql = `INSERT into super_article(title,content,desc1,imageUrl,imageWidth,imageHeight,userName,updateTime,createTime,typeid)
+        let sql = `INSERT into super_article(title,content,desc1,image_url,image_width,image_height,user_name,update_time,create_time,type_id)
         VALUES('${title}','${content}','${desc}','${imageUrl}',${imageWidth},${imageHeight},'小超人',current_timestamp(),current_timestamp(),${typeId})`
         console.log(sql);
         db.execSql(sql, (err, data) => {
@@ -88,9 +88,9 @@ class BlogDal {
         let imageWidth = req.body.imageWidth;
         let imageHeight = req.body.imageHeight;
         imageUrl = imageUrl.replace('\\', '/');
-        let sql = `UPDATE super_article SET title='${title}', content='${content}',imageUrl='${imageUrl}',
-        desc1='${desc}'
-        ,imageWidth=${imageWidth},imageHeight=${imageHeight},updateTime=current_timestamp()
+        let sql = `UPDATE super_article SET title='${title}', content='${content}',image_url='${imageUrl}',
+        depict='${desc}'
+        ,image_width=${imageWidth},image_height=${imageHeight},update_time=current_timestamp()
 WHERE id=${id}`
         db.execSql(sql, (err, data) => {
             if (err) {
