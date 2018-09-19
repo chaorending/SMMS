@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var blogRouter = require('./routes/blog');
-
+var typeRouter = require('./routes/type');
 var app = express();
 
 // view engine setup
@@ -24,6 +24,7 @@ app.use('/upload',express.static(path.join(__dirname,'upload')));//将文件设�
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blog', blogRouter);
+app.use('/type', typeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

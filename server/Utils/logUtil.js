@@ -10,7 +10,7 @@ log4js.configure({
     categories: {
         default: {
             appenders: ['cheese'],
-            level: 'error'
+            level: 'INFO'
         }
     }
 });
@@ -23,12 +23,10 @@ LogUtil.trace = (value) => {
     }
 
 }
-
 LogUtil.debug = (value) => {
     if (value) {
         logger.debug(value);
     }
-
 }
 LogUtil.error = (value) => {
     if (value) {

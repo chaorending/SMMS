@@ -71,7 +71,6 @@ export default {
         .then(
           function(result) {
             that.loading = false;
-            console.log(result);
             that.articelList = result.data[1];
             that.pageCount = Math.ceil(result.data[0][0].Total/5);
           },

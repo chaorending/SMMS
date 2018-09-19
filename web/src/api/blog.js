@@ -2,7 +2,6 @@ import * as API from '.'
 
 
 export default {
-
   //查询获取blog列表(通过page分页)
   findList: params => {
     return API.GET('/api/blog/blogList', params)
@@ -19,7 +18,6 @@ export default {
   update: (params) => {
     return API.POST(`/api/blog/update`, params)
   },
-
 //单个删除blog
   remove: (params) => {
     return API.POST(`/api/blog/delete/`,params)

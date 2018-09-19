@@ -22,7 +22,6 @@ var upload = multer({
 });
 
 router.get('/blogList', function (req, res, next) {
-    LogUtil.error("这是测试");
     blogdal.queryBlogList(req, res);
 })
 
@@ -48,7 +47,5 @@ router.post('/upload', upload.single('file'), function (req, res, next) {
     });
 });
 
-
-///类型增删改查
 
 module.exports = router;

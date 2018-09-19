@@ -4,6 +4,7 @@ import Main from '@/components/Main'
 import Login from '../components/Login'
 import EditBlog from '@/components/blog/EditBlog'
 import BlogList from '@/components/blog/BlogList'
+import TypeList from '@/components/type/TypeList'
 Vue.use(Router)
 
 let router = new Router({
@@ -42,6 +43,18 @@ let router = new Router({
           }
         },
       ]
+    },{
+      path:'/',
+      component:Main,
+      name:"类型维护",
+      menuShow: true,
+      iconCls:"el-icon-document",
+      children:[{
+        path:'/type/list',
+        name:'类型列表',
+        menuShow: true,
+        component:TypeList
+      }]
     }
   ]
 })
