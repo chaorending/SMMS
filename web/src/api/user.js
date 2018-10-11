@@ -10,7 +10,7 @@ export default {
     return API.GET('/api/v1/users/logout', params)
   },
   //修改个人信息
-  changeProfile: params => {
-    return API.PATCH('/api/v1/users/profile', params)
+  changeuserinfo: params => {
+    return API.POST('/api/users/updateuserinfo', params)
   }
 }

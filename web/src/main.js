@@ -12,6 +12,12 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 import store from '@/store/index';
 import VueQuillEditor from 'vue-quill-editor'
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+  color: '#29F',
+  failedColor: 'red',
+  thickness: '2px'
+})
 Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
 Vue.use(ElementUI)

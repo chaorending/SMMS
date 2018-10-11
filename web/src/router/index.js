@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import EditBlog from '@/components/blog/EditBlog'
 import BlogList from '@/components/blog/BlogList'
 import TypeList from '@/components/type/TypeList'
+import Userinfo from '@/components/user/UserInfo'
 Vue.use(Router)
 
 let router = new Router({
@@ -13,11 +14,13 @@ let router = new Router({
       name: '登录',
       component: Login
 
-    },
+    }
+    ,
     {
       path: '/',
       name: '首页',
-      component: Main
+      component: Main,
+      menuShow: true
     }, {
       path: '/',
       component: Main,
@@ -54,6 +57,19 @@ let router = new Router({
         name:'类型列表',
         menuShow: true,
         component:TypeList
+      }]
+    },
+    {
+      path:'/',
+      component:Main,
+      name:"用户管理",
+      menuShow:true,
+      iconCls:"el-icon-document",
+      children:[{
+         path:'/user/userInfo',
+         component:Userinfo,
+         name:"修改用户信息",
+         menuShow: true
       }]
     }
   ]

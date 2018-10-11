@@ -15,6 +15,7 @@
           </el-form-item>
         </el-form>
       </el-col>
+  
       <!--列表-->
       <el-table :data="articelList" style="width: 100%;">
         <el-table-column v-if="false" prop="id" width="60"></el-table-column>
